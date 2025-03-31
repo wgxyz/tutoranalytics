@@ -52,19 +52,6 @@ const Hero = () => {
               Learn More
             </Button>
           </div>
-          
-          <div 
-            className={`mt-16 glass-card p-6 sm:p-8 transition-all duration-700 delay-500 ${
-              loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-          >
-            <div className="aspect-video rounded-xl bg-gray-100 overflow-hidden flex items-center justify-center">
-              <div className="text-primary">
-                <p className="font-medium">Demo Video Placeholder</p>
-                <p className="text-sm text-muted-foreground mt-2">See TutorAnalytics in action</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
