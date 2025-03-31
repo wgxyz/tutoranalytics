@@ -22,7 +22,7 @@ const CTASection = () => {
     try {
       const { error } = await supabase
         .from('email_signups')
-        .insert([{ email: email.trim() }]);
+        .insert({ email: email.trim() });
         
       if (error) {
         if (error.code === '23505') {
