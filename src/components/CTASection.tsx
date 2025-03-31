@@ -49,7 +49,7 @@ const CTASection = () => {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="heading-lg mb-6">Ready to Transform Your Tutoring Business?</h2>
           <p className="text-lg text-white/80 mb-10">
-            Join our early access program and be among the first to experience the power of TutorInsight.
+            Join our early access program and be among the first to experience the power of TutorAnalytics.
           </p>
           
           <form onSubmit={handleSubmit} className="max-w-md mx-auto">

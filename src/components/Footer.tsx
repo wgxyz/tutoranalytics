@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container px-4 mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-8 md:mb-0">
-            <span className="font-bold text-xl tracking-tight">TutorInsight</span>
+            <span className="font-bold text-xl tracking-tight">TutorAnalytics</span>
             <p className="text-sm text-muted-foreground mt-2">
               Enhancing tutoring excellence through AI analysis.
             </p>
@@ -76,7 +76,7 @@ const Footer = () => {
         
         <div className="mt-12 pt-6 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground mb-4 sm:mb-0">
-            © {currentYear} TutorInsight. All rights reserved.
+            © {currentYear} TutorAnalytics. All rights reserved.
           </p>
           
           <div className="flex space-x-6">

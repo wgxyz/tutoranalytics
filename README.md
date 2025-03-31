@@ -1,8 +1,10 @@
-# Welcome to your Lovable project
+
+# Welcome to TutorAnalytics
 
 ## Project info
 
 **URL**: https://lovable.dev/projects/c56996fe-f3f1-431f-ae26-c8bed2409be5
+**Domain**: tutoranalytics.com
 
 ## How can I edit this code?
 
@@ -52,7 +54,7 @@ npm run dev
 
 ## What technologies are used for this project?
 
-This project is built with .
+This project is built with:
 
 - Vite
 - TypeScript
@@ -64,6 +66,11 @@ This project is built with .
 
 Simply open [Lovable](https://lovable.dev/projects/c56996fe-f3f1-431f-ae26-c8bed2409be5) and click on Share -> Publish.
 
-## I want to use a custom domain - is that possible?
+## Custom domain setup
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+To connect your custom domain (tutoranalytics.com):
+1. Navigate to Project > Settings > Domains in Lovable
+2. Follow the DNS configuration instructions to point your domain to Lovable's servers
+3. Wait for DNS propagation (this may take up to 48 hours)
+
+Note: A paid Lovable plan is required to use custom domains.

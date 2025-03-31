@@ -61,7 +61,7 @@ const Hero = () => {
             <div className="aspect-video rounded-xl bg-gray-100 overflow-hidden flex items-center justify-center">
               <div className="text-primary">
                 <p className="font-medium">Demo Video Placeholder</p>
-                <p className="text-sm text-muted-foreground mt-2">See TutorInsight in action</p>
+                <p className="text-sm text-muted-foreground mt-2">See TutorAnalytics in action</p>
               </div>
             </div>
           </div>

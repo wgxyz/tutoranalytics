@@ -1,4 +1,3 @@
-
 import { ReactNode } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -81,7 +80,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
       {/* Sidebar for desktop */}
       <aside className="hidden md:flex flex-col w-64 bg-white border-r border-gray-200">
         <div className="p-6">
-          <h1 className="text-2xl font-bold text-primary">TutorInsight</h1>
+          <h1 className="text-2xl font-bold text-primary">TutorAnalytics</h1>
         </div>
 
         <nav className="flex-1 p-4">
@@ -142,7 +141,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           <div className="md:hidden fixed inset-0 z-50 bg-gray-800/50">
             <div className="fixed inset-y-0 left-0 w-3/4 max-w-sm bg-white">
               <div className="p-6 flex items-center justify-between">
-                <h1 className="text-2xl font-bold text-primary">TutorInsight</h1>
+                <h1 className="text-2xl font-bold text-primary">TutorAnalytics</h1>
                 <button
                   className="rounded-lg p-2 hover:bg-gray-100"
                   onClick={() => setIsMobileMenuOpen(false)}

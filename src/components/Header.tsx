@@ -24,7 +24,7 @@ const Header = () => {
     >
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center">
-          <span className="font-bold text-xl tracking-tight">TutorInsight</span>
+          <span className="font-bold text-xl tracking-tight">TutorAnalytics</span>
         </div>
         <nav className="hidden md:flex space-x-8 items-center">
           <a href="#features" className="font-medium text-sm hover:text-primary transition-colors">Features</a>
