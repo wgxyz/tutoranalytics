@@ -3,12 +3,13 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const CTASection = () => {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!email.trim()) {
@@ -18,12 +19,28 @@ const CTASection = () => {
     
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      toast.success("Thank you for your interest! We'll be in touch soon.");
-      setEmail("");
+    try {
+      const { error } = await supabase
+        .from('email_signups')
+        .insert([{ email: email.trim() }]);
+        
+      if (error) {
+        if (error.code === '23505') {
+          toast.error("This email has already been registered");
+        } else {
+          toast.error("Error saving your email. Please try again.");
+          console.error("Error inserting email:", error);
+        }
+      } else {
+        toast.success("Thank you for your interest! We'll be in touch soon.");
+        setEmail("");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("An unexpected error occurred. Please try again.");
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
