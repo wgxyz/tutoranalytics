@@ -17,6 +17,13 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [scrolled]);
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 lg:px-10 py-4
@@ -31,7 +38,7 @@ const Header = () => {
           <a href="#how-it-works" className="font-medium text-sm hover:text-primary transition-colors">How It Works</a>
           <a href="#contact" className="font-medium text-sm hover:text-primary transition-colors">Contact</a>
         </nav>
-        <Button className="rounded-full px-6 shadow-md">
+        <Button className="rounded-full px-6 shadow-md" onClick={scrollToContact}>
           Get Early Access
         </Button>
       </div>

@@ -9,6 +9,13 @@ const Hero = () => {
     setLoaded(true);
   }, []);
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative pt-28 lg:pt-36 pb-20 overflow-hidden">
       {/* Background gradient */}
@@ -41,13 +48,18 @@ const Hero = () => {
               loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <Button size="lg" className="rounded-full px-8 py-6 text-base shadow-lg">
+            <Button 
+              size="lg" 
+              className="rounded-full px-8 py-6 text-base shadow-lg"
+              onClick={scrollToContact}
+            >
               Request a Demo
             </Button>
             <Button 
               variant="outline" 
               size="lg" 
               className="rounded-full px-8 py-6 text-base border-2"
+              onClick={scrollToContact}
             >
               Learn More
             </Button>
