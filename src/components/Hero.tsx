@@ -34,8 +34,9 @@ const Hero = () => {
           >
             <p className="subtle-text text-blue mb-4">Revolutionizing Tutoring Quality</p>
             <h1 className="heading-xl mb-6 text-navy">
-              AI-Powered Analysis for 
-              <span className="text-blue"> Tutoring Excellence</span>
+              AI-Powered Analysis for
+              <br />
+              <span className="text-blue">Tutoring Excellence</span>
             </h1>
             <p className="text-xl text-navy/80 mb-8 max-w-2xl mx-auto">
               Record lessons, analyze tutor-student interactions, and gain insights to improve 
