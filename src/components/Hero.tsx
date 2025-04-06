@@ -56,14 +56,6 @@ const Hero = () => {
             >
               Request a Demo
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="rounded-full px-8 py-6 text-base border-2 border-navy text-navy hover:bg-navy/5"
-              onClick={scrollToContact}
-            >
-              Learn More
-            </Button>
           </div>
         </div>
       </div>
