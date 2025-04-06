@@ -31,14 +31,17 @@ const Header = () => {
     >
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center">
-          <span className="font-bold text-xl tracking-tight">TutorAnalytics</span>
+          <span className="font-merriweather font-bold text-xl tracking-tight text-navy">TutorAnalytics</span>
         </div>
         <nav className="hidden md:flex space-x-8 items-center">
-          <a href="#features" className="font-medium text-sm hover:text-primary transition-colors">Features</a>
-          <a href="#how-it-works" className="font-medium text-sm hover:text-primary transition-colors">How It Works</a>
-          <a href="#contact" className="font-medium text-sm hover:text-primary transition-colors">Contact</a>
+          <a href="#features" className="font-medium text-sm hover:text-blue transition-colors text-navy">Features</a>
+          <a href="#how-it-works" className="font-medium text-sm hover:text-blue transition-colors text-navy">How It Works</a>
+          <a href="#contact" className="font-medium text-sm hover:text-blue transition-colors text-navy">Contact</a>
         </nav>
-        <Button className="rounded-full px-6 shadow-md" onClick={scrollToContact}>
+        <Button 
+          className="rounded-full px-6 shadow-md bg-blue hover:bg-blue/90 text-white" 
+          onClick={scrollToContact}
+        >
           Get Early Access
         </Button>
       </div>

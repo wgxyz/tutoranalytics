@@ -44,7 +44,7 @@ const CTASection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-28 bg-primary text-white">
+    <section id="contact" className="py-20 lg:py-28 bg-navy text-white">
       <div className="container px-4 mx-auto">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="heading-lg mb-6">Ready to Transform Your Tutoring Business?</h2>
@@ -57,14 +57,14 @@ const CTASection = () => {
               <Input
                 type="email"
                 placeholder="Enter your email"
-                className="rounded-full py-6 px-6 text-black bg-white border-0 shadow-lg"
+                className="rounded-full py-6 px-6 text-navy bg-white border-0 shadow-lg"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
               <Button 
                 type="submit" 
-                className="rounded-full py-6 px-8 bg-white text-primary hover:bg-white/90 hover:text-primary shadow-lg"
+                className="rounded-full py-6 px-8 bg-yellow text-navy hover:bg-yellow/90 hover:text-navy shadow-lg font-semibold"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Sending..." : "Get Started"}

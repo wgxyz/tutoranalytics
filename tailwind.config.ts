@@ -24,8 +24,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['"SF Pro Display"', 'system-ui', 'sans-serif'],
-        mono: ['"SF Mono"', 'monospace'],
+        merriweather: ['"Merriweather Sans"', 'sans-serif'],
+        opensans: ['"Open Sans"', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: 'hsl(var(--border))',
@@ -33,6 +33,11 @@ export default {
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+        navy: '#0c2244',
+        white: '#ffffff',
+        yellow: '#ffd338',
+        blue: '#2476ff',
+        lightgray: '#dee7fa',
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))'
