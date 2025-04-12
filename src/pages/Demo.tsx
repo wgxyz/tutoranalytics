@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
@@ -20,19 +19,19 @@ import {
 const Demo = () => {
   const [activeTab, setActiveTab] = useState("overview");
 
-  // Data for Key Conversion Drivers chart
+  // Data for Key Conversion Drivers chart - UPDATED VALUES
   const keyConversionData = [
     {
-      name: "Thoughtful Questions",
-      value: 82,
+      name: "Student Speak Time",
+      value: 66,
     },
     {
       name: "Active Interaction",
-      value: 58,
+      value: 80,
     },
     {
-      name: "Student Speak Time",
-      value: 30,
+      name: "Thoughtful Questions",
+      value: 50,
     },
   ];
 
@@ -88,12 +87,11 @@ const Demo = () => {
     { metric: "Student Speaking Time", result: "30% of lesson", impact: "Positive (needs increase)" },
   ];
 
-  // Sample tutors data
+  // Sample tutors data - REMOVED SUBJECTS
   const tutorsData = [
     {
       id: 1,
       name: "Sarah Johnson",
-      subject: "Mathematics",
       conversion: 82,
       studentSpeakTime: 42,
       engagement: 9.1,
@@ -104,7 +102,6 @@ const Demo = () => {
     {
       id: 2,
       name: "Michael Chen",
-      subject: "Physics",
       conversion: 75,
       studentSpeakTime: 35,
       engagement: 8.3,
@@ -115,7 +112,6 @@ const Demo = () => {
     {
       id: 3,
       name: "Emma Rodriguez",
-      subject: "Chemistry",
       conversion: 68,
       studentSpeakTime: 28,
       engagement: 7.4,
@@ -126,7 +122,6 @@ const Demo = () => {
     {
       id: 4,
       name: "David Wilson",
-      subject: "English Literature",
       conversion: 91,
       studentSpeakTime: 48,
       engagement: 9.6,
@@ -358,7 +353,7 @@ const Demo = () => {
             </Card>
           </TabsContent>
 
-          {/* Tutors Assessment Tab Content */}
+          {/* Tutors Assessment Tab Content - UPDATED to remove subject display */}
           <TabsContent value="tutors" className="space-y-8">
             <Card className="shadow-sm">
               <CardContent className="pt-6">
@@ -378,7 +373,6 @@ const Demo = () => {
                         <div className="flex justify-between items-start mb-4">
                           <div>
                             <h3 className="text-lg font-semibold text-navy">{tutor.name}</h3>
-                            <p className="text-sm text-gray-600">{tutor.subject}</p>
                           </div>
                           <div className={`px-3 py-1 rounded-full text-sm font-medium ${
                             tutor.riskLevel === "low" ? "bg-green-100 text-green-800" :
