@@ -33,18 +33,25 @@ const DemoSection = () => {
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
               </div>
+              <div className="ml-4 text-sm font-medium text-gray-500">TutorAnalytics Demo</div>
             </div>
             
             <div className="pt-12 pb-4">
-              <div className="overflow-hidden rounded-lg">
+              <div className="overflow-hidden rounded-lg relative">
                 <img 
-                  src="/placeholder.svg" 
-                  alt="TutorAnalytics Demo Preview" 
+                  src="/lovable-uploads/1e575038-a793-4777-8ae6-1e3d29b8d3d3.png" 
+                  alt="TutorAnalytics Demo Dashboard" 
                   className="w-full h-auto object-cover border"
                   style={{ height: "300px" }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent flex items-end justify-center pb-8">
-                  <span className="text-white font-medium px-4 py-2 bg-blue/80 rounded-full">Interactive Dashboard</span>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="bg-white/90 p-4 rounded-lg shadow-lg backdrop-blur-sm">
+                    <Link to="/demo" className="inline-block">
+                      <Button variant="outline" className="bg-blue text-white border-none hover:bg-blue/90">
+                        Try Interactive Dashboard
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
