@@ -1,10 +1,11 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-
+  
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 10;
@@ -37,6 +38,7 @@ const Header = () => {
           <a href="#features" className="font-medium text-sm hover:text-blue transition-colors text-navy">Features</a>
           <a href="#how-it-works" className="font-medium text-sm hover:text-blue transition-colors text-navy">How It Works</a>
           <a href="#contact" className="font-medium text-sm hover:text-blue transition-colors text-navy">Contact</a>
+          <Link to="/demo" className="font-medium text-sm hover:text-blue transition-colors text-navy">Demo</Link>
         </nav>
         <Button 
           className="rounded-full px-6 shadow-md bg-blue hover:bg-blue/90 text-white" 

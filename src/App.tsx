@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import Demo from "./pages/Demo";
 import AuthGuard from "./components/AuthGuard";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/demo" element={<Demo />} />
           
           {/* Protected Routes */}
           <Route 
