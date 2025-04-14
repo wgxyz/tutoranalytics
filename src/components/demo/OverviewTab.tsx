@@ -1,4 +1,5 @@
 
+import { useIsMobile } from "@/hooks/use-mobile";
 import { BarChart3, MessageSquare, CheckSquare } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -12,6 +13,7 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  Legend,
 } from "recharts";
 
 // Data for Key Conversion Drivers chart
@@ -73,6 +75,8 @@ const keyElementsData = [
 ];
 
 const OverviewTab = () => {
+  const isMobile = useIsMobile();
+
   return (
     <div className="space-y-8">
       {/* Key Conversion Drivers */}
@@ -83,16 +87,22 @@ const OverviewTab = () => {
             <h2 className="text-lg font-semibold text-navy">Key Conversion Drivers</h2>
           </div>
           
-          <div className="h-72">
+          <div className={isMobile ? "h-60" : "h-72"}>
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
                 data={keyConversionData}
                 layout="vertical"
-                margin={{ top: 20, right: 30, left: 120, bottom: 5 }}
+                margin={isMobile ? { top: 20, right: 20, left: 80, bottom: 5 } : { top: 20, right: 30, left: 120, bottom: 5 }}
               >
                 <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} />
                 <XAxis type="number" domain={[0, 100]} tickFormatter={(value) => `${value}%`} />
-                <YAxis type="category" dataKey="name" tick={{ fill: '#0c2244' }} width={120} />
+                <YAxis 
+                  type="category" 
+                  dataKey="name" 
+                  tick={{ fill: '#0c2244' }} 
+                  width={isMobile ? 80 : 120}
+                  fontSize={isMobile ? 10 : 12}
+                />
                 <Tooltip formatter={(value) => [`${value}%`, 'Value']} />
                 <Bar dataKey="value" fill="#9b87f5" radius={[0, 4, 4, 0]} />
               </BarChart>
@@ -100,7 +110,7 @@ const OverviewTab = () => {
           </div>
           
           <div className="mt-4 bg-blue/10 p-4 rounded-md text-navy">
-            <p>Lessons with higher student interaction showed significantly better conversion rates. Focus on engagement!</p>
+            <p className={isMobile ? "text-sm" : ""}>Lessons with higher student interaction showed significantly better conversion rates. Focus on engagement!</p>
           </div>
         </CardContent>
       </Card>
@@ -113,7 +123,7 @@ const OverviewTab = () => {
             <h2 className="text-lg font-semibold text-navy">Speaking Time Distribution</h2>
           </div>
           
-          <div className="h-72 flex justify-center items-center">
+          <div className={isMobile ? "h-60" : "h-72"}>
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
@@ -121,23 +131,24 @@ const OverviewTab = () => {
                   cx="50%"
                   cy="50%"
                   innerRadius={0}
-                  outerRadius={100}
+                  outerRadius={isMobile ? 70 : 100}
                   fill="#8884d8"
                   paddingAngle={0}
                   dataKey="value"
-                  label={({ name, value }) => `${name}: ${value}%`}
+                  label={isMobile ? false : ({ name, value }) => `${name}: ${value}%`}
                 >
                   {speakingTimeData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                 </Pie>
                 <Tooltip formatter={(value) => [`${value}%`, 'Percentage']} />
+                {isMobile && <Legend />}
               </PieChart>
             </ResponsiveContainer>
           </div>
           
           <div className="mt-4 bg-yellow/20 p-4 rounded-md text-navy">
-            <p>Tutors speak 70% of the time. Aim for more balanced interaction to improve engagement.</p>
+            <p className={isMobile ? "text-sm" : ""}>Tutors speak 70% of the time. Aim for more balanced interaction to improve engagement.</p>
           </div>
         </CardContent>
       </Card>
@@ -150,19 +161,21 @@ const OverviewTab = () => {
             <h2 className="text-lg font-semibold text-navy">Qualitative Scores</h2>
           </div>
           
-          <div className="h-72">
+          <div className={isMobile ? "h-60" : "h-72"}>
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
                 data={qualitativeScoresData}
-                margin={{ top: 20, right: 30, left: 20, bottom: 40 }}
+                margin={isMobile ? { top: 20, right: 20, left: 10, bottom: 30 } : { top: 20, right: 30, left: 20, bottom: 40 }}
               >
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                 <XAxis 
                   dataKey="name" 
                   tick={{ fill: '#0c2244' }}
-                  angle={0}
-                  textAnchor="middle"
+                  angle={isMobile ? -45 : 0}
+                  textAnchor={isMobile ? "end" : "middle"}
+                  height={isMobile ? 50 : 40}
                   interval={0}
+                  fontSize={isMobile ? 10 : 12}
                 />
                 <YAxis domain={[0, 10]} />
                 <Tooltip formatter={(value) => [value, 'Score']} />
@@ -172,7 +185,7 @@ const OverviewTab = () => {
           </div>
           
           <div className="mt-4 bg-lightgray p-4 rounded-md text-navy">
-            <p>Tutors score high on friendliness (9.2) and professionalism (8.6), but student engagement (7.1) has room for improvement.</p>
+            <p className={isMobile ? "text-sm" : ""}>Tutors score high on friendliness (9.2) and professionalism (8.6), but student engagement (7.1) has room for improvement.</p>
           </div>
         </CardContent>
       </Card>
@@ -185,20 +198,21 @@ const OverviewTab = () => {
             <h2 className="text-lg font-semibold text-navy">Key Elements Presence</h2>
           </div>
           
-          <div className="h-72">
+          <div className={isMobile ? "h-60" : "h-72"}>
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
                 data={keyElementsData}
-                margin={{ top: 20, right: 30, left: 20, bottom: 40 }}
+                margin={isMobile ? { top: 20, right: 20, left: 10, bottom: 60 } : { top: 20, right: 30, left: 20, bottom: 40 }}
               >
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                 <XAxis 
                   dataKey="name" 
                   tick={{ fill: '#0c2244' }}
-                  angle={0} 
-                  textAnchor="middle"
-                  height={60}
+                  angle={isMobile ? -45 : 0}
+                  textAnchor={isMobile ? "end" : "middle"}
+                  height={isMobile ? 60 : 60}
                   interval={0}
+                  fontSize={isMobile ? 10 : 12}
                 />
                 <YAxis domain={[0, 100]} tickFormatter={(value) => `${value}%`} />
                 <Tooltip formatter={(value) => [`${value}%`, 'Percentage']} />
@@ -208,7 +222,7 @@ const OverviewTab = () => {
           </div>
           
           <div className="mt-4 bg-red-100 p-4 rounded-md text-red-700">
-            <p>Only 40% of tutors asked if students liked the lesson. This is a critical checkpoint for gauging satisfaction.</p>
+            <p className={isMobile ? "text-sm" : ""}>Only 40% of tutors asked if students liked the lesson. This is a critical checkpoint for gauging satisfaction.</p>
           </div>
         </CardContent>
       </Card>

@@ -1,4 +1,5 @@
 
+import { useIsMobile } from "@/hooks/use-mobile";
 import { Card, CardContent } from "@/components/ui/card";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
 
@@ -13,40 +14,46 @@ const detailedMetricsData = [
 ];
 
 const DetailedMetricsTab = () => {
+  const isMobile = useIsMobile();
+
   return (
     <div className="space-y-8">
       <Card className="shadow-sm">
         <CardContent className="pt-6">
           <h2 className="text-xl font-semibold mb-6 text-navy">Detailed Metrics Analysis</h2>
           
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-1/3 text-navy font-semibold">METRIC</TableHead>
-                <TableHead className="w-1/3 text-navy font-semibold">RESULT</TableHead>
-                <TableHead className="w-1/3 text-navy font-semibold">IMPACT ON CONVERSION</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {detailedMetricsData.map((item, index) => (
-                <TableRow key={index}>
-                  <TableCell className="font-medium">{item.metric}</TableCell>
-                  <TableCell>{item.result}</TableCell>
-                  <TableCell>
-                    <span className={`${
-                      item.impact === "Very High" ? "text-green-600" :
-                      item.impact === "High" ? "text-green-500" :
-                      item.impact === "Medium" ? "text-blue" :
-                      item.impact === "Negative" ? "text-red-500" :
-                      item.impact.includes("Positive") ? "text-green-500" : ""
-                    }`}>
-                      {item.impact}
-                    </span>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+          <div className="overflow-x-auto -mx-6">
+            <div className={`min-w-full ${isMobile ? 'px-6' : ''}`}>
+              <Table className={isMobile ? "text-sm" : ""}>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className={`${isMobile ? 'w-1/3' : 'w-1/3'} text-navy font-semibold`}>METRIC</TableHead>
+                    <TableHead className={`${isMobile ? 'w-1/3' : 'w-1/3'} text-navy font-semibold`}>RESULT</TableHead>
+                    <TableHead className={`${isMobile ? 'w-1/3' : 'w-1/3'} text-navy font-semibold`}>IMPACT ON CONVERSION</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {detailedMetricsData.map((item, index) => (
+                    <TableRow key={index}>
+                      <TableCell className={`font-medium ${isMobile ? 'py-3 text-xs' : ''}`}>{item.metric}</TableCell>
+                      <TableCell className={isMobile ? 'py-3 text-xs' : ''}>{item.result}</TableCell>
+                      <TableCell className={isMobile ? 'py-3 text-xs' : ''}>
+                        <span className={`${
+                          item.impact === "Very High" ? "text-green-600" :
+                          item.impact === "High" ? "text-green-500" :
+                          item.impact === "Medium" ? "text-blue" :
+                          item.impact === "Negative" ? "text-red-500" :
+                          item.impact.includes("Positive") ? "text-green-500" : ""
+                        }`}>
+                          {item.impact}
+                        </span>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          </div>
         </CardContent>
       </Card>
     </div>
